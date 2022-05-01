@@ -14,11 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        self.window?.makeKeyAndVisible()
+        let bounds = UIScreen.main.bounds
+        self.window = UIWindow(frame: bounds)
+        self.window?.isHidden = false
+        setRootViewController()
         return true
     }
-
     
+    func setRootViewController() {
+        self.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+    }
 
 }
 

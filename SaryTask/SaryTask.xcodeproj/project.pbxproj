@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		71BEBC21B160E40CF7632263 /* Pods_SaryTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */; };
 		74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */; };
-		74EC1EC2281E1C7300C06E39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EC1281E1C7300C06E39 /* ViewController.swift */; };
-		74EC1EC5281E1C7300C06E39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC3281E1C7300C06E39 /* Main.storyboard */; };
+		74EC1EC2281E1C7300C06E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */; };
 		74EC1EC7281E1C7500C06E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC6281E1C7500C06E39 /* Assets.xcassets */; };
 		74EC1ECA281E1C7500C06E39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC8281E1C7500C06E39 /* LaunchScreen.storyboard */; };
+		74EC1ED4281E202900C06E39 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1ED2281E202900C06E39 /* APIRouter.swift */; };
+		74EC1ED5281E202900C06E39 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1ED3281E202900C06E39 /* HomeRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryTask.release.xcconfig"; path = "Target Support Files/Pods-SaryTask/Pods-SaryTask.release.xcconfig"; sourceTree = "<group>"; };
 		74EC1EBA281E1C7300C06E39 /* SaryTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaryTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74EC1EC1281E1C7300C06E39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		74EC1EC4281E1C7300C06E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		74EC1EC6281E1C7500C06E39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74EC1EC9281E1C7500C06E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74EC1ECB281E1C7500C06E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74EC1ED2281E202900C06E39 /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		74EC1ED3281E202900C06E39 /* HomeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
 		AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaryTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AF58B3750220101B763975 /* Pods-SaryTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryTask.debug.xcconfig"; path = "Target Support Files/Pods-SaryTask/Pods-SaryTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +56,6 @@
 				F8AF58B3750220101B763975 /* Pods-SaryTask.debug.xcconfig */,
 				610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,14 +80,47 @@
 		74EC1EBC281E1C7300C06E39 /* SaryTask */ = {
 			isa = PBXGroup;
 			children = (
+				74EC1ED8281E205B00C06E39 /* ViewModel */,
+				74EC1ED7281E205300C06E39 /* Model */,
+				74EC1ED6281E203100C06E39 /* View */,
+				74EC1ED1281E202900C06E39 /* Repository */,
 				74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */,
-				74EC1EC1281E1C7300C06E39 /* ViewController.swift */,
-				74EC1EC3281E1C7300C06E39 /* Main.storyboard */,
 				74EC1EC6281E1C7500C06E39 /* Assets.xcassets */,
 				74EC1EC8281E1C7500C06E39 /* LaunchScreen.storyboard */,
 				74EC1ECB281E1C7500C06E39 /* Info.plist */,
 			);
 			path = SaryTask;
+			sourceTree = "<group>";
+		};
+		74EC1ED1281E202900C06E39 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				74EC1ED2281E202900C06E39 /* APIRouter.swift */,
+				74EC1ED3281E202900C06E39 /* HomeRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		74EC1ED6281E203100C06E39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74EC1ED7281E205300C06E39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74EC1ED8281E205B00C06E39 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +185,6 @@
 			files = (
 				74EC1ECA281E1C7500C06E39 /* LaunchScreen.storyboard in Resources */,
 				74EC1EC7281E1C7500C06E39 /* Assets.xcassets in Resources */,
-				74EC1EC5281E1C7300C06E39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74EC1EC2281E1C7300C06E39 /* ViewController.swift in Sources */,
+				74EC1EC2281E1C7300C06E39 /* HomeViewController.swift in Sources */,
+				74EC1ED4281E202900C06E39 /* APIRouter.swift in Sources */,
+				74EC1ED5281E202900C06E39 /* HomeRepository.swift in Sources */,
 				74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,14 +247,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		74EC1EC3281E1C7300C06E39 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				74EC1EC4281E1C7300C06E39 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		74EC1EC8281E1C7500C06E39 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -359,7 +386,6 @@
 				INFOPLIST_FILE = SaryTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -389,7 +415,6 @@
 				INFOPLIST_FILE = SaryTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
