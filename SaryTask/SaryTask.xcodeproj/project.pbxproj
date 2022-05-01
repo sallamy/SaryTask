@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71BEBC21B160E40CF7632263 /* Pods_SaryTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */; };
+		7447AFD7281F2FE800A4E9C8 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447AFD6281F2FE800A4E9C8 /* ResponseModel.swift */; };
 		74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */; };
 		74EC1EC2281E1C7300C06E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */; };
 		74EC1EC7281E1C7500C06E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC6281E1C7500C06E39 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryTask.release.xcconfig"; path = "Target Support Files/Pods-SaryTask/Pods-SaryTask.release.xcconfig"; sourceTree = "<group>"; };
+		7447AFD6281F2FE800A4E9C8 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		74EC1EBA281E1C7300C06E39 /* SaryTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaryTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		74EC1ED7281E205300C06E39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7447AFD6281F2FE800A4E9C8 /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				74EC1ED4281E202900C06E39 /* APIRouter.swift in Sources */,
 				74EC1ED5281E202900C06E39 /* HomeRepository.swift in Sources */,
 				74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */,
+				7447AFD7281F2FE800A4E9C8 /* ResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
