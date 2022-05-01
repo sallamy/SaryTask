@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71BEBC21B160E40CF7632263 /* Pods_SaryTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */; };
 		74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */; };
 		74EC1EC2281E1C7300C06E39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EC1281E1C7300C06E39 /* ViewController.swift */; };
 		74EC1EC5281E1C7300C06E39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC3281E1C7300C06E39 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryTask.release.xcconfig"; path = "Target Support Files/Pods-SaryTask/Pods-SaryTask.release.xcconfig"; sourceTree = "<group>"; };
 		74EC1EBA281E1C7300C06E39 /* SaryTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaryTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EC1EC1281E1C7300C06E39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		74EC1EC6281E1C7500C06E39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74EC1EC9281E1C7500C06E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74EC1ECB281E1C7500C06E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaryTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8AF58B3750220101B763975 /* Pods-SaryTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryTask.debug.xcconfig"; path = "Target Support Files/Pods-SaryTask/Pods-SaryTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BEBC21B160E40CF7632263 /* Pods_SaryTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1215476912BEC01A19AD1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4204E9F423B5361C6424CE13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8AF58B3750220101B763975 /* Pods-SaryTask.debug.xcconfig */,
+				610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		74EC1EB1281E1C7300C06E39 = {
 			isa = PBXGroup;
 			children = (
 				74EC1EBC281E1C7300C06E39 /* SaryTask */,
 				74EC1EBB281E1C7300C06E39 /* Products */,
+				4204E9F423B5361C6424CE13 /* Pods */,
+				1B1215476912BEC01A19AD1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74EC1ECE281E1C7500C06E39 /* Build configuration list for PBXNativeTarget "SaryTask" */;
 			buildPhases = (
+				77FD0478E11216413898DE27 /* [CP] Check Pods Manifest.lock */,
 				74EC1EB6281E1C7300C06E39 /* Sources */,
 				74EC1EB7281E1C7300C06E39 /* Frameworks */,
 				74EC1EB8281E1C7300C06E39 /* Resources */,
+				F6BBCBFBDDDD2DEA2CC21B8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77FD0478E11216413898DE27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaryTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6BBCBFBDDDD2DEA2CC21B8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SaryTask/Pods-SaryTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SaryTask/Pods-SaryTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SaryTask/Pods-SaryTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		74EC1EB6281E1C7300C06E39 /* Sources */ = {
@@ -280,6 +349,7 @@
 		};
 		74EC1ECF281E1C7500C06E39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8AF58B3750220101B763975 /* Pods-SaryTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +379,7 @@
 		};
 		74EC1ED0281E1C7500C06E39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
