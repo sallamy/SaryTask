@@ -14,6 +14,7 @@ final class HomeRepository {
     class func getBanner(complete: @escaping(_ success: Bool,
                                             _ error: String?,
                                             _ result: SectionViewDataProtocol?)->Void) {
+      
         AF.request(APIRouter.getBanners).validate().responseDecodable { (response: DataResponse<BannerResponse?, AFError>) in
             
             switch response.result {

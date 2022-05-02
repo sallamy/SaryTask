@@ -134,7 +134,7 @@ struct BannerModel: Codable {
     private var title: String?
     private var description: String?
     private var button_text: String?
-    private var expiry_status: String?
+    private var expiry_status: Bool?
     private var created_at: String?
     private var start_date: String?
     private var expiry_date: String?

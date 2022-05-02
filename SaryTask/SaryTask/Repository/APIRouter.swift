@@ -17,7 +17,7 @@ protocol APIConfiguration: URLRequestConvertible {
 
 struct Constants {
     struct ProductionServer {
-        static let baseURL = "https://staging.sary.to/api/v2.5.1/baskets/325514/"
+        static let baseURL = "https://staging.sary.to/api/baskets/325514/"
     }
 }
 
@@ -27,6 +27,8 @@ enum HTTPHeaderField: String {
     case Accept_Language = "Accept-Language"
     case App_Version = "App-Version"
     case Device_Type = "Device-Type"
+    case contentType = "Content-Type"
+
     
     var headerValue: String {
         switch self {
@@ -40,6 +42,8 @@ enum HTTPHeaderField: String {
             return "5.5.0.0.0"
         case .Device_Type:
             return "ios"
+        case .contentType:
+            return ContentType.json.rawValue
         }
     }
     
@@ -71,7 +75,6 @@ enum APIRouter: APIConfiguration {
     // MARK: - Parameters
     var parameters: RequestParams {
         switch self {
-       
         case .getBanners,.getCatalog:
             return .url([:])
         }
@@ -81,9 +84,9 @@ enum APIRouter: APIConfiguration {
     var path: String {
         switch self {
         case .getBanners:
-            return "/banners"
+            return "banners/"
         case .getCatalog:
-            return "/catalog"
+            return "catalog/"
        
         }
     }
@@ -98,7 +101,11 @@ enum APIRouter: APIConfiguration {
         urlRequest.setValue(HTTPHeaderField.Device_Type.headerValue, forHTTPHeaderField: HTTPHeaderField.Device_Type.rawValue)
         urlRequest.setValue(HTTPHeaderField.Accept_Language.headerValue, forHTTPHeaderField: HTTPHeaderField.Accept_Language.rawValue)
         urlRequest.setValue(HTTPHeaderField.App_Version.headerValue, forHTTPHeaderField: HTTPHeaderField.App_Version.rawValue)
-     
+        urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
+        
+        urlRequest.httpMethod = method.rawValue
+        
+        print(urlRequest.allHTTPHeaderFields)
         
         // Parameters
         switch parameters {
@@ -112,7 +119,9 @@ enum APIRouter: APIConfiguration {
                 return URLQueryItem(name: pair.key, value: "\(pair.value)")
             }
             var components = URLComponents(string:url.appendingPathComponent(path).absoluteString)
-            components?.queryItems = queryParams
+            if !queryParams.isEmpty {
+                components?.queryItems = queryParams
+            }
             urlRequest.url = components?.url
         }
         return urlRequest

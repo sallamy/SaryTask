@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		71BEBC21B160E40CF7632263 /* Pods_SaryTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2BC8A0D591C49C8B7628AF /* Pods_SaryTask.framework */; };
 		7447AFD7281F2FE800A4E9C8 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447AFD6281F2FE800A4E9C8 /* ResponseModel.swift */; };
+		7447AFDF281F4FCF00A4E9C8 /* SaryTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447AFDE281F4FCF00A4E9C8 /* SaryTaskTests.swift */; };
 		74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */; };
 		74EC1EC2281E1C7300C06E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */; };
 		74EC1EC7281E1C7500C06E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC6281E1C7500C06E39 /* Assets.xcassets */; };
@@ -17,9 +18,21 @@
 		74EC1ED5281E202900C06E39 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1ED3281E202900C06E39 /* HomeRepository.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7447AFE0281F4FCF00A4E9C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74EC1EB2281E1C7300C06E39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74EC1EB9281E1C7300C06E39;
+			remoteInfo = SaryTask;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		610ACB234FBE2FEBEBAEB862 /* Pods-SaryTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryTask.release.xcconfig"; path = "Target Support Files/Pods-SaryTask/Pods-SaryTask.release.xcconfig"; sourceTree = "<group>"; };
 		7447AFD6281F2FE800A4E9C8 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		7447AFDC281F4FCF00A4E9C8 /* SaryTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaryTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7447AFDE281F4FCF00A4E9C8 /* SaryTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaryTaskTests.swift; sourceTree = "<group>"; };
 		74EC1EBA281E1C7300C06E39 /* SaryTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaryTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +46,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7447AFD9281F4FCF00A4E9C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EC1EB7281E1C7300C06E39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,10 +81,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7447AFDD281F4FCF00A4E9C8 /* SaryTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				7447AFDE281F4FCF00A4E9C8 /* SaryTaskTests.swift */,
+			);
+			path = SaryTaskTests;
+			sourceTree = "<group>";
+		};
 		74EC1EB1281E1C7300C06E39 = {
 			isa = PBXGroup;
 			children = (
 				74EC1EBC281E1C7300C06E39 /* SaryTask */,
+				7447AFDD281F4FCF00A4E9C8 /* SaryTaskTests */,
 				74EC1EBB281E1C7300C06E39 /* Products */,
 				4204E9F423B5361C6424CE13 /* Pods */,
 				1B1215476912BEC01A19AD1A /* Frameworks */,
@@ -75,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				74EC1EBA281E1C7300C06E39 /* SaryTask.app */,
+				7447AFDC281F4FCF00A4E9C8 /* SaryTaskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +159,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7447AFDB281F4FCF00A4E9C8 /* SaryTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7447AFE2281F4FCF00A4E9C8 /* Build configuration list for PBXNativeTarget "SaryTaskTests" */;
+			buildPhases = (
+				7447AFD8281F4FCF00A4E9C8 /* Sources */,
+				7447AFD9281F4FCF00A4E9C8 /* Frameworks */,
+				7447AFDA281F4FCF00A4E9C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7447AFE1281F4FCF00A4E9C8 /* PBXTargetDependency */,
+			);
+			name = SaryTaskTests;
+			productName = SaryTaskTests;
+			productReference = 7447AFDC281F4FCF00A4E9C8 /* SaryTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		74EC1EB9281E1C7300C06E39 /* SaryTask */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74EC1ECE281E1C7500C06E39 /* Build configuration list for PBXNativeTarget "SaryTask" */;
@@ -158,6 +206,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					7447AFDB281F4FCF00A4E9C8 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 74EC1EB9281E1C7300C06E39;
+					};
 					74EC1EB9281E1C7300C06E39 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -177,11 +229,19 @@
 			projectRoot = "";
 			targets = (
 				74EC1EB9281E1C7300C06E39 /* SaryTask */,
+				7447AFDB281F4FCF00A4E9C8 /* SaryTaskTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7447AFDA281F4FCF00A4E9C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EC1EB8281E1C7300C06E39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +296,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7447AFD8281F4FCF00A4E9C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7447AFDF281F4FCF00A4E9C8 /* SaryTaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EC1EB6281E1C7300C06E39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -250,6 +318,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7447AFE1281F4FCF00A4E9C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74EC1EB9281E1C7300C06E39 /* SaryTask */;
+			targetProxy = 7447AFE0281F4FCF00A4E9C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		74EC1EC8281E1C7500C06E39 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -262,6 +338,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7447AFE3281F4FCF00A4E9C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Sary.SaryTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaryTask.app/SaryTask";
+			};
+			name = Debug;
+		};
+		7447AFE4281F4FCF00A4E9C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Sary.SaryTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaryTask.app/SaryTask";
+			};
+			name = Release;
+		};
 		74EC1ECC281E1C7500C06E39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -439,6 +551,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7447AFE2281F4FCF00A4E9C8 /* Build configuration list for PBXNativeTarget "SaryTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7447AFE3281F4FCF00A4E9C8 /* Debug */,
+				7447AFE4281F4FCF00A4E9C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		74EC1EB5281E1C7300C06E39 /* Build configuration list for PBXProject "SaryTask" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
