@@ -51,7 +51,11 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 210
+        let section  = viewModel.sections.value[indexPath.row]
+        if section.dataCellViewType == .banner {
+            return 210
+        }
+        return 0
     }
     
 }
