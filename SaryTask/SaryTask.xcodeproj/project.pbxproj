@@ -16,6 +16,7 @@
 		74EBAFEB2820AD1B00F1293B /* Alert Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBAFE72820AD1B00F1293B /* Alert Extenstion.swift */; };
 		74EBAFED2820AD1B00F1293B /* UIView Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBAFE92820AD1B00F1293B /* UIView Constraints.swift */; };
 		74EBAFF02820B8E600F1293B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBAFEF2820B8E600F1293B /* HomeViewModel.swift */; };
+		74EBAFF22820C6A700F1293B /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBAFF12820C6A700F1293B /* BannerCollectionViewCell.swift */; };
 		74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */; };
 		74EC1EC2281E1C7300C06E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */; };
 		74EC1EC7281E1C7500C06E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EC1EC6281E1C7500C06E39 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		74EBAFE72820AD1B00F1293B /* Alert Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert Extenstion.swift"; sourceTree = "<group>"; };
 		74EBAFE92820AD1B00F1293B /* UIView Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView Constraints.swift"; sourceTree = "<group>"; };
 		74EBAFEF2820B8E600F1293B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		74EBAFF12820C6A700F1293B /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		74EC1EBA281E1C7300C06E39 /* SaryTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaryTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EC1EBD281E1C7300C06E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				74EBAFE02820AB2100F1293B /* BannerViewCell.swift */,
 				74EBAFE22820AB3000F1293B /* SmartViewCell.swift */,
 				74EBAFE42820AB4200F1293B /* GroupCollectionViewCell.swift */,
+				74EBAFF12820C6A700F1293B /* BannerCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				74EC1EC2281E1C7300C06E39 /* HomeViewController.swift in Sources */,
 				74EC1ED4281E202900C06E39 /* APIRouter.swift in Sources */,
 				74EBAFE52820AB4200F1293B /* GroupCollectionViewCell.swift in Sources */,
+				74EBAFF22820C6A700F1293B /* BannerCollectionViewCell.swift in Sources */,
 				74EBAFEB2820AD1B00F1293B /* Alert Extenstion.swift in Sources */,
 				74EC1ED5281E202900C06E39 /* HomeRepository.swift in Sources */,
 				74EC1EBE281E1C7300C06E39 /* AppDelegate.swift in Sources */,
