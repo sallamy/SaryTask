@@ -141,7 +141,7 @@ struct BannerModel: Codable {
     private var image: String?
     private var priority: Int?
     private var photo: String?
-    internal var link: String?
+    private var link: String?
     private var level: String?
     private var is_available: Bool?
     private var branch: Int?
