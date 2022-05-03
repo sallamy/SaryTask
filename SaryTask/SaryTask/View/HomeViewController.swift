@@ -27,7 +27,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
         setup()
     }
     
@@ -49,14 +49,23 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     func registerTableView() {
         self.tableView.register(BannerViewCell.self, forCellReuseIdentifier: BannerViewCell.idenetifier)
+        self.tableView.register(SmartViewCell.self, forCellReuseIdentifier: SmartViewCell.idenetifier)
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section  = viewModel.sections.value[indexPath.row]
-        if section.dataCellViewType == .banner {
+        switch section.dataCellViewType {
+        case .smart:
+            return 120
+        case .banner:
             return 210
+        case .group:
+            return 0
+        case .none:
+            return 0
         }
-        return 0
+        
     }
     
 }
@@ -67,7 +76,7 @@ extension HomeViewController {
     func observeLoading() {
         viewModel.isLoading.asObservable().subscribe { status in
             if let state = status.element, state == true{
-                    SVProgressHUD.show()
+                SVProgressHUD.show()
             }else {
                 SVProgressHUD.dismiss()
             }
@@ -81,6 +90,11 @@ extension HomeViewController {
             if item.dataCellViewType == .banner {
                 if let cell = tv.dequeueReusableCell(withIdentifier: BannerViewCell.idenetifier ) as? BannerViewCell {
                     cell.configureCell(bannerViewData: item, parent: self)
+                    return cell
+                }
+            }else  if item.dataCellViewType == .smart {
+                if let cell = tv.dequeueReusableCell(withIdentifier: SmartViewCell.idenetifier ) as? SmartViewCell {
+                    cell.configureCell(viewData: item)
                     return cell
                 }
             }

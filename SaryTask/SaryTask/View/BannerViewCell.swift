@@ -75,11 +75,11 @@ class BannerViewCell: UITableViewCell, UIScrollViewDelegate {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         self.items.accept(bannerItems)
+        
         if let rowCount = bannerViewData.rowCount {
             if rowCount == 1 {
                 collectionView.layer.cornerRadius = 25
             }
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             let width = (Int(self.frame.width) - 30)/rowCount
             layout.itemSize = CGSize(width: width, height: width)
         }else {
@@ -87,6 +87,8 @@ class BannerViewCell: UITableViewCell, UIScrollViewDelegate {
             let width = (Int(self.frame.width) - 30)
             layout.itemSize = CGSize(width: width, height: 160)
         }
+        
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
    @objc func updateCounter() {
