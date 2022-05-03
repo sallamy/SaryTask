@@ -20,6 +20,8 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 44 // this is your storyboard default cell height
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     
@@ -54,17 +56,23 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let section  = viewModel.sections.value[indexPath.row]
-        switch section.dataCellViewType {
-        case .smart:
-            return 120
-        case .banner:
-            return 210
-        case .group:
-            return 0
-        case .none:
-            return 0
-        }
+     //   let section  = viewModel.sections.value[indexPath.row]
+//        if let cell = tableView.cellForRow(at: indexPath) as? SectionBaseTableViewCell {
+//            print("456456")
+//            return cell.collectionView.contentSize.height
+//        }
+//        return 0
+        return UITableView.automaticDimension
+//        switch section.dataCellViewType {
+//        case .smart:
+//            return 120
+//        case .banner:
+//            return 210
+//        case .group:
+//            return 0
+//        case .none:
+//            return 0
+//        }
         
     }
     
@@ -97,6 +105,16 @@ extension HomeViewController {
                     cell.configureCell(viewData: item)
                     return cell
                 }
+            }else if item.dataCellViewType == .group && item.collectionViewType == .grid {
+                if let cell = tv.dequeueReusableCell(withIdentifier: SmartViewCell.idenetifier ) as? SmartViewCell {
+                    cell.configureCell(viewData: item)
+                    return cell
+                }
+            }else if item.dataCellViewType == .group && (item.collectionViewType == .linear || item.collectionViewType == .slider) {
+                if let cell = tv.dequeueReusableCell(withIdentifier: BannerViewCell.idenetifier ) as? BannerViewCell {
+                    cell.configureCell(bannerViewData: item, parent: self)
+                    return cell
+                }
             }
             
             return UITableViewCell()
@@ -105,3 +123,4 @@ extension HomeViewController {
     }
     
 }
+
