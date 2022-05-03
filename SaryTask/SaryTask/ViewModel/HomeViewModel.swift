@@ -12,14 +12,14 @@ import RxRelay
 class HomeViewModel {
     
     let sections: BehaviorRelay<[SectionViewDataProtocol]> = BehaviorRelay(value: [])
-    let isLoading = BehaviorRelay<Bool>(value: false)
+    let isLoading = PublishSubject<Bool>()
    
     // MARK: - CallApi
     func getBanner() {
-        self.isLoading.accept(true)
+        self.isLoading.onNext(true)
         HomeRepository.getBanner { [weak self] success, error, result in
             guard let self = self else {return}
-            self.isLoading.accept(false)
+            self.isLoading.onNext(false)
             if success , let banner = result {
                 self.sections.accept([banner])
             }
@@ -28,10 +28,10 @@ class HomeViewModel {
     }
     
     func getCatalog() {
-        self.isLoading.accept(true)
+        self.isLoading.onNext(true)
         HomeRepository.getCatalog { [weak self] success, error, result in
             guard let self = self else {return}
-            self.isLoading.accept(false)
+            self.isLoading.onNext(false)
             if success, let catalogResponse = result {
                 self.sections.accept(self.sections.value + catalogResponse)
             }

@@ -162,9 +162,9 @@
 			children = (
 				74EC1EC1281E1C7300C06E39 /* HomeViewController.swift */,
 				74EBAFE02820AB2100F1293B /* BannerViewCell.swift */,
+				74EBAFF12820C6A700F1293B /* BannerCollectionViewCell.swift */,
 				74EBAFE22820AB3000F1293B /* SmartViewCell.swift */,
 				74EBAFE42820AB4200F1293B /* GroupCollectionViewCell.swift */,
-				74EBAFF12820C6A700F1293B /* BannerCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

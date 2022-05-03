@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         setup()
     }
     
@@ -66,7 +67,7 @@ extension HomeViewController {
     func observeLoading() {
         viewModel.isLoading.asObservable().subscribe { status in
             if let state = status.element, state == true{
-                SVProgressHUD.show()
+                    SVProgressHUD.show()
             }else {
                 SVProgressHUD.dismiss()
             }

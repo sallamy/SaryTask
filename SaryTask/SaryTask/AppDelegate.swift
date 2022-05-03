@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let bounds = UIScreen.main.bounds
         self.window = UIWindow(frame: bounds)
-        self.window?.isHidden = false
+      //  self.window?.isHidden = false
+        self.window?.makeKeyAndVisible()
         setRootViewController()
         return true
     }

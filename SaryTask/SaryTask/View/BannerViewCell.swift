@@ -10,6 +10,7 @@ import SDWebImage
 import RxSwift
 import RxGesture
 import RxRelay
+import SVProgressHUD
 
 class BannerViewCell: UITableViewCell, UIScrollViewDelegate {
     
@@ -109,7 +110,8 @@ class BannerViewCell: UITableViewCell, UIScrollViewDelegate {
         self.collectionView.rx.modelSelected(CatalogItemViewDataProtocol.self).subscribe { [weak self] event in
             guard let self = self else { return  }
             if let parent = self.parentController, let link  = event.element?.itemLink {
-                UIAlertController.show(link, from: parent )
+              //  UIAlertController.show(link, from: parent )
+                SVProgressHUD.showError(withStatus: link)
             }
         }.disposed(by: disposeBag)
     }
