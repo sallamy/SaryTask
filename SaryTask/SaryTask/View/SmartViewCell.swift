@@ -23,7 +23,6 @@ class SmartViewCell: SectionBaseTableViewCell {
     }
     
     func buildUI(){
- 
         collectionView.isPagingEnabled = true
         collectionView.clipsToBounds = true
         collectionView.isScrollEnabled = false
@@ -79,10 +78,7 @@ class SmartViewCell: SectionBaseTableViewCell {
             layout.minimumInteritemSpacing = 0
         }
         self.items.accept(bannerItems)
-        collectionView.layoutIfNeeded()
-        collectionView.frame = CGRect(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y, width: collectionView.frame.width , height: 100)
-        self.collectionView.reloadData()
-        self.collectionView.layoutIfNeeded()
+        self.collectionView.reloadUI()
     }
     
     private  func registerCollectionView(){

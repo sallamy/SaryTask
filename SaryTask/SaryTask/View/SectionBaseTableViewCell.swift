@@ -34,28 +34,26 @@ class SectionBaseTableViewCell: UITableViewCell {
     }
     
     
-    
 }
 
 class DynamicHeightCollectionView: UICollectionView {
     
     override func layoutSubviews() {
-        
         super.layoutSubviews()
-        
         if bounds.size != intrinsicContentSize {
-            
             self.invalidateIntrinsicContentSize()
-            
         }
-        
+    }
+    
+    func reloadUI() {
+        self.layoutIfNeeded()
+        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width , height: 100)
+        self.reloadData()
+        self.layoutIfNeeded()
     }
     
     override var intrinsicContentSize: CGSize {
-
-        
         return self.contentSize
-        
     }
     
 }

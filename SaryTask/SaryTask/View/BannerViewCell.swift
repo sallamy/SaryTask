@@ -34,7 +34,6 @@ class BannerViewCell: SectionBaseTableViewCell {
     }
     
     func buildUI(){
-
         collectionView.isPagingEnabled = true
         collectionView.clipsToBounds = true
         collectionView.isScrollEnabled = true
@@ -53,7 +52,6 @@ class BannerViewCell: SectionBaseTableViewCell {
     
     func configureCell(bannerViewData: SectionViewDataProtocol, parent: UIViewController) {
         self.parentController = parent
-        
         guard let bannerItems = bannerViewData.items  else { return  }
         pageControl.numberOfPages = bannerItems.count
         if let title = bannerViewData.title , !title.isEmpty , let showTitle = bannerViewData.showTitle, showTitle {
@@ -77,8 +75,8 @@ class BannerViewCell: SectionBaseTableViewCell {
         }
         
         self.items.accept(bannerItems)
-        self.collectionView.reloadData()
-        self.collectionView.layoutIfNeeded()
+        self.collectionView.reloadUI()
+     
     }
     
     @objc func updateCounter() {
@@ -110,9 +108,6 @@ class BannerViewCell: SectionBaseTableViewCell {
             }
         }.disposed(by: disposeBag)
     }
-    
-
-    
 }
 
 

@@ -52,7 +52,6 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     func registerTableView() {
         self.tableView.register(BannerViewCell.self, forCellReuseIdentifier: BannerViewCell.idenetifier)
         self.tableView.register(SmartViewCell.self, forCellReuseIdentifier: SmartViewCell.idenetifier)
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,9 +72,7 @@ extension HomeViewController {
             }
         }.disposed(by: disposeBag)
     }
-    
-    
-    
+
     func bindTableView() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         viewModel.sections.bind(to: tableView.rx.items){ [weak self] (tv, row, item) -> UITableViewCell in

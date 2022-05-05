@@ -35,8 +35,6 @@ class SmartCollectionViewCell: UICollectionViewCell {
     }
     
     func buildUI(){
- 
-       
         contentView.addSubview(imageView)
         contentView.addSubview(nameLabel)
         imageView.setConstraints(top: contentView.topAnchor,bottom: contentView.bottomAnchor,  leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: 10,paddingBottom: 40, paddingLeading: 2, paddingTrailing: 2)
