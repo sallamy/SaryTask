@@ -32,8 +32,9 @@ class HomeViewModel {
         HomeRepository.getCatalog { [weak self] success, error, result in
             guard let self = self else {return}
             self.isLoading.onNext(false)
-            if success, let catalogResponse = result {
-                self.sections.accept(self.sections.value + catalogResponse)
+            if success, let catalogResponse = result  {
+                let filtered = catalogResponse.filter({!($0.items?.isEmpty ?? false)})
+                self.sections.accept(self.sections.value + filtered)
             }
         }
     }

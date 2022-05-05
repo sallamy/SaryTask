@@ -14,7 +14,6 @@ class BannerCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

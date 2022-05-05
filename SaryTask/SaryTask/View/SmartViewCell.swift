@@ -22,7 +22,12 @@ class SmartViewCell: SectionBaseTableViewCell {
         bindCollectionViewCell()
     }
     
-     func buildUI(){
+    func buildUI(){
+        collectionView.isPagingEnabled = true
+        collectionView.clipsToBounds = true
+        collectionView.isScrollEnabled = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         backgroundColor  = UIColor.white
         selectionStyle = .none
         contentView.addSubview(nameLabel)
@@ -34,40 +39,52 @@ class SmartViewCell: SectionBaseTableViewCell {
     func configureCell(viewData: SectionViewDataProtocol) {
         
         guard let bannerItems = viewData.items  else { return  }
+        if let title = viewData.title , !title.isEmpty , let showTitle = viewData.showTitle, showTitle {
+            self.nameLabel.text = title
+        }
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.scrollDirection = .horizontal
+        if let rowCount = viewData.rowCount {
+            let width = (Int(UIScreen.main.bounds.width - 30))/rowCount
+            layout.itemSize = CGSize(width: width, height: width)
+            layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
+        }
+        self.items.accept(bannerItems)
+    }
+    
+    func configureGroupCell(viewData: SectionViewDataProtocol) {
+        
+        guard let bannerItems = viewData.items  else { return  }
         
         if let title = viewData.title , !title.isEmpty , let showTitle = viewData.showTitle, showTitle {
             self.nameLabel.text = title
         }
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        if viewData.collectionViewType == .grid && viewData.dataCellViewType == .group {
+        if viewData.collectionViewType == .grid  {
             layout.scrollDirection = .vertical
-        }else {
+        }else  if viewData.collectionViewType == .slider || viewData.collectionViewType == .linear {
             layout.scrollDirection = .horizontal
+            collectionView.isScrollEnabled = true
         }
-        
-        collectionView.isPagingEnabled = true
-        collectionView.clipsToBounds = true
-        collectionView.isScrollEnabled = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
         
         if let rowCount = viewData.rowCount {
             let width = (Int(UIScreen.main.bounds.width - 30))/rowCount
             layout.itemSize = CGSize(width: width, height: width)
             layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
         }
         self.items.accept(bannerItems)
     }
-    
-    
     
     private  func registerCollectionView(){
         self.collectionView.register(SmartCollectionViewCell.self, forCellWithReuseIdentifier: "SmartCollectionViewCell")
     }
     
+   
     private  func bindCollectionViewCell() {
         self.items.bind(to:self.collectionView.rx.items(cellIdentifier: "SmartCollectionViewCell", cellType: SmartCollectionViewCell.self)) { row, data, cell in
-            cell.imageView.sd_setImage(with: URL(string:  data.imageUrl ?? "" ))
+            cell.imageView.sd_setImage(with: URL(string:  data.imageUrl ?? "" ),placeholderImage: UIImage(named: "placeholder"))
             cell.nameLabel.text = data.itemName
         }.disposed(by: disposeBag)
     }

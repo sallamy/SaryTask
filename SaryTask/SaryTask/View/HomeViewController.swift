@@ -56,24 +56,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-     //   let section  = viewModel.sections.value[indexPath.row]
-//        if let cell = tableView.cellForRow(at: indexPath) as? SectionBaseTableViewCell {
-//            print("456456")
-//            return cell.collectionView.contentSize.height
-//        }
-//        return 0
         return UITableView.automaticDimension
-//        switch section.dataCellViewType {
-//        case .smart:
-//            return 120
-//        case .banner:
-//            return 210
-//        case .group:
-//            return 0
-//        case .none:
-//            return 0
-//        }
-        
     }
     
 }
@@ -91,11 +74,13 @@ extension HomeViewController {
         }.disposed(by: disposeBag)
     }
     
+    
+    
     func bindTableView() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         viewModel.sections.bind(to: tableView.rx.items){ [weak self] (tv, row, item) -> UITableViewCell in
             guard let self = self else { return UITableViewCell() }
-            if item.dataCellViewType == .banner {
+            if item.dataCellViewType == .banner || (item.dataCellViewType == .group && item.collectionViewType == .linear && item.rowCount == 1) {
                 if let cell = tv.dequeueReusableCell(withIdentifier: BannerViewCell.idenetifier ) as? BannerViewCell {
                     cell.configureCell(bannerViewData: item, parent: self)
                     return cell
@@ -105,14 +90,9 @@ extension HomeViewController {
                     cell.configureCell(viewData: item)
                     return cell
                 }
-            }else if item.dataCellViewType == .group && item.collectionViewType == .grid {
+            }else if item.dataCellViewType == .group {
                 if let cell = tv.dequeueReusableCell(withIdentifier: SmartViewCell.idenetifier ) as? SmartViewCell {
-                    cell.configureCell(viewData: item)
-                    return cell
-                }
-            }else if item.dataCellViewType == .group && (item.collectionViewType == .linear || item.collectionViewType == .slider) {
-                if let cell = tv.dequeueReusableCell(withIdentifier: BannerViewCell.idenetifier ) as? BannerViewCell {
-                    cell.configureCell(bannerViewData: item, parent: self)
+                    cell.configureGroupCell(viewData: item)
                     return cell
                 }
             }

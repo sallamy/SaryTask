@@ -11,6 +11,7 @@ class SmartCollectionViewCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+
         return imageView
     }()
     
@@ -38,11 +39,11 @@ class SmartCollectionViewCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
-        stack.distribution = .fill
-        stack.spacing = 5
+        stack.distribution = .fillProportionally
+        stack.spacing = 0
         stack.addArrangedSubview(imageView)
         stack.addArrangedSubview(nameLabel)
-        imageView.setConstraints( height: 60)
+        imageView.setConstraints( height: 75)
         self.contentView.addSubview(stack)
         stack.fillSuperView(self.contentView)
     }

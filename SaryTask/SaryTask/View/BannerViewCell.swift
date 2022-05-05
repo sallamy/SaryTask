@@ -12,12 +12,9 @@ import SVProgressHUD
 class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
     
     static let idenetifier = "BannerViewCell"
-
     private var parentController: UIViewController?
-    
     var timer = Timer()
     var currentItem: Int = 0
-    
     
     private  lazy var  pageControl: UIPageControl = {
         let pageControl  = UIPageControl()
@@ -36,9 +33,12 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
         bindCollectionViewCell()
     }
     
-   
-    
     func buildUI(){
+        collectionView.isPagingEnabled = true
+        collectionView.clipsToBounds = true
+        collectionView.isScrollEnabled = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         backgroundColor  = UIColor.white
         selectionStyle = .none
         contentView.addSubview(nameLabel)
@@ -60,15 +60,12 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
         }
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.scrollDirection = .horizontal
-        collectionView.isPagingEnabled = true
-        collectionView.clipsToBounds = true
-        collectionView.isScrollEnabled = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
+      
         
         if let rowCount = bannerViewData.rowCount {
             if rowCount == 1 {
-                collectionView.layer.cornerRadius = 25
+                collectionView.layer.cornerRadius = 15
+                self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             }
             let width = (Int(UIScreen.main.bounds.width) - 30)/rowCount
             layout.itemSize = CGSize(width: width, height: width)
@@ -76,9 +73,9 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
             collectionView.layer.cornerRadius = 25
             let width = (Int(UIScreen.main.bounds.width) - 30)
             layout.itemSize = CGSize(width: width, height: 160)
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         }
         
-        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         self.items.accept(bannerItems)
         
     }
@@ -99,7 +96,7 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
     
     private  func bindCollectionViewCell() {
         self.items.bind(to:self.collectionView.rx.items(cellIdentifier: "BannerCollectionViewCell", cellType: BannerCollectionViewCell.self)) { row, data, cell in
-            cell.imageView.sd_setImage(with: URL(string:  data.imageUrl ?? "" ))
+            cell.imageView.sd_setImage(with: URL(string:  data.imageUrl ?? "" ),placeholderImage: UIImage(named: "placeholder"))
             
         }.disposed(by: disposeBag)
         
@@ -112,6 +109,7 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
         }.disposed(by: disposeBag)
     }
     
+
     
 }
 
