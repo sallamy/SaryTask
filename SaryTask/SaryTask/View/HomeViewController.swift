@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 44 // this is your storyboard default cell height
+        tableView.estimatedRowHeight = 100000 // this is your storyboard default cell height
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setup()
     }
     

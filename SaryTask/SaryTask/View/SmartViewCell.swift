@@ -23,6 +23,7 @@ class SmartViewCell: SectionBaseTableViewCell {
     }
     
     func buildUI(){
+ 
         collectionView.isPagingEnabled = true
         collectionView.clipsToBounds = true
         collectionView.isScrollEnabled = false
@@ -33,11 +34,10 @@ class SmartViewCell: SectionBaseTableViewCell {
         contentView.addSubview(nameLabel)
         contentView.addSubview(collectionView)
         nameLabel.setConstraints(top: contentView.topAnchor,trailing: contentView.trailingAnchor,paddingTrailing: 16,height: 24)
-        collectionView.setConstraints(top: nameLabel.bottomAnchor,bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor,paddingTop: 15,paddingBottom: 30,paddingLeading: 15,paddingTrailing: 15,  height: 100)
+        collectionView.setConstraints(top: nameLabel.bottomAnchor,bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor,paddingTop: 15,paddingBottom: 30,paddingLeading: 15,paddingTrailing: 15)
     }
     
     func configureCell(viewData: SectionViewDataProtocol) {
-        
         guard let bannerItems = viewData.items  else { return  }
         if let title = viewData.title , !title.isEmpty , let showTitle = viewData.showTitle, showTitle {
             self.nameLabel.text = title
@@ -51,6 +51,10 @@ class SmartViewCell: SectionBaseTableViewCell {
             layout.minimumInteritemSpacing = 0
         }
         self.items.accept(bannerItems)
+        collectionView.layoutIfNeeded()
+        collectionView.frame = CGRect(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y, width: collectionView.frame.width , height: 100)
+        self.collectionView.reloadData()
+        self.collectionView.layoutIfNeeded()
     }
     
     func configureGroupCell(viewData: SectionViewDataProtocol) {
@@ -75,13 +79,16 @@ class SmartViewCell: SectionBaseTableViewCell {
             layout.minimumInteritemSpacing = 0
         }
         self.items.accept(bannerItems)
+        collectionView.layoutIfNeeded()
+        collectionView.frame = CGRect(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y, width: collectionView.frame.width , height: 100)
+        self.collectionView.reloadData()
+        self.collectionView.layoutIfNeeded()
     }
     
     private  func registerCollectionView(){
         self.collectionView.register(SmartCollectionViewCell.self, forCellWithReuseIdentifier: "SmartCollectionViewCell")
     }
     
-   
     private  func bindCollectionViewCell() {
         self.items.bind(to:self.collectionView.rx.items(cellIdentifier: "SmartCollectionViewCell", cellType: SmartCollectionViewCell.self)) { row, data, cell in
             cell.imageView.sd_setImage(with: URL(string:  data.imageUrl ?? "" ),placeholderImage: UIImage(named: "placeholder"))

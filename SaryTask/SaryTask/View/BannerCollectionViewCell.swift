@@ -25,6 +25,6 @@ class BannerCollectionViewCell: UICollectionViewCell {
     func buildUI(){
         self.contentView.addSubview(imageView)
         imageView.fillSuperView(self.contentView)
-        imageView.setConstraints( height: 70)
+       // imageView.setConstraints( height: 70)
     }
 }

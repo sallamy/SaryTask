@@ -14,8 +14,8 @@ import RxRelay
 
 class SectionBaseTableViewCell: UITableViewCell {
     let disposeBag = DisposeBag()
-    
-    lazy var collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+
+    lazy var collectionView = DynamicHeightCollectionView(frame: self.bounds, collectionViewLayout: UICollectionViewFlowLayout())
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -33,24 +33,29 @@ class SectionBaseTableViewCell: UITableViewCell {
         self.nameLabel.text = ""
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
     
-    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        collectionView.layoutIfNeeded()
-        collectionView.frame = CGRect(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y, width: collectionView.frame.width , height: 1)
+}
 
-        let newCellSize = CGSize(width: collectionView.collectionViewLayout.collectionViewContentSize.width, height: collectionView.contentSize.height + 70 )
+class DynamicHeightCollectionView: UICollectionView {
+    
+    override func layoutSubviews() {
         
-        return newCellSize
+        super.layoutSubviews()
+        
+        if bounds.size != intrinsicContentSize {
+            
+            self.invalidateIntrinsicContentSize()
+            
+        }
+        
+    }
+    
+    override var intrinsicContentSize: CGSize {
+
+        
+        return self.contentSize
+        
     }
     
 }

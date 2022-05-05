@@ -9,7 +9,7 @@ import UIKit
 import SVProgressHUD
 
 
-class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
+class BannerViewCell: SectionBaseTableViewCell {
     
     static let idenetifier = "BannerViewCell"
     private var parentController: UIViewController?
@@ -34,6 +34,7 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
     }
     
     func buildUI(){
+
         collectionView.isPagingEnabled = true
         collectionView.clipsToBounds = true
         collectionView.isScrollEnabled = true
@@ -43,10 +44,10 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
         selectionStyle = .none
         contentView.addSubview(nameLabel)
         contentView.addSubview(collectionView)
-        collectionView.addSubview(pageControl)
+        contentView.addSubview(pageControl)
         nameLabel.setConstraints(top: contentView.topAnchor,trailing: contentView.trailingAnchor,paddingTrailing: 16,height: 24)
         collectionView.setConstraints(top: nameLabel.bottomAnchor,bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor,paddingTop: 15,paddingBottom: 30,paddingLeading: 15,paddingTrailing: 15,  height: 160)
-        pageControl.setConstraints(bottom: collectionView.bottomAnchor,  paddingBottom: 10, height: 20)
+        pageControl.setConstraints(bottom: contentView.bottomAnchor,  paddingBottom: 50, height: 20)
         pageControl.makeItCentered(centerX: contentView.centerXAnchor)
     }
     
@@ -60,8 +61,7 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
         }
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.scrollDirection = .horizontal
-      
-        
+
         if let rowCount = bannerViewData.rowCount {
             if rowCount == 1 {
                 collectionView.layer.cornerRadius = 15
@@ -77,19 +77,21 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
         }
         
         self.items.accept(bannerItems)
-        
+        self.collectionView.reloadData()
+        self.collectionView.layoutIfNeeded()
     }
     
     @objc func updateCounter() {
         if currentItem < self.collectionView.numberOfItems(inSection: 0) {
             self.collectionView.scrollToItem(at: IndexPath(item: currentItem, section: 0), at: .right, animated: true)
+            self.pageControl.currentPage = self.currentItem
             self.currentItem += 1
         } else {
             self.currentItem = 0
         }
     }
     
-    
+
     private  func registerCollectionView(){
         self.collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: "BannerCollectionViewCell")
     }
@@ -114,3 +116,8 @@ class BannerViewCell: SectionBaseTableViewCell, UIScrollViewDelegate {
 }
 
 
+extension UIScrollView {
+    var currentPage:Int{
+        return Int((self.contentOffset.x+(0.5*self.frame.size.width))/self.frame.width)
+    }
+}

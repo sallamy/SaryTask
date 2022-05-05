@@ -36,15 +36,11 @@ class SmartCollectionViewCell: UICollectionViewCell {
     
     func buildUI(){
  
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.alignment = .center
-        stack.distribution = .fillProportionally
-        stack.spacing = 0
-        stack.addArrangedSubview(imageView)
-        stack.addArrangedSubview(nameLabel)
-        imageView.setConstraints( height: 75)
-        self.contentView.addSubview(stack)
-        stack.fillSuperView(self.contentView)
+       
+        contentView.addSubview(imageView)
+        contentView.addSubview(nameLabel)
+        imageView.setConstraints(top: contentView.topAnchor,bottom: contentView.bottomAnchor,  leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: 10,paddingBottom: 40, paddingLeading: 2, paddingTrailing: 2)
+        nameLabel.setConstraints(top: imageView.bottomAnchor, centerX: contentView.centerXAnchor,  height: 20)
+       
     }
 }
